@@ -1,31 +1,35 @@
+<!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
 <div class="row">
   <div class="col-md-6">
-    <h2><i class="fa fa-users"></i>Clients</h2>
+    <h2><i class="fa fa-lightbulb-o"></i>Projets en cours</h2>
   </div>
   <div class="col-md-6">
-    <h5 class="text-right text-secondary">Montant total dû : {{ detteTotale | currency : "EUR" }} </h5>
+    <a routerLink="/projet/add" class="btn btn-success btn-block">
+      <i class="fa fa-plus"></i>
+      New
+      </a>
   </div>
 </div>
 
-<table  class="table table-striped mt-3">
+<table *ngIf="projets?.length > 0; else noProjets" class="table table-striped mt-3">
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Solde</th>
+      <th scope="col">Nom du Projet</th>
+      <th scope="col">Date de la Demande</th>
+      <th scope="col">Etat d'avancement</th>
       <th scope="col"></th> 
     </tr>
   </thead>
 
   <tbody >
     <tr scope="row">
-      <td> {{ client.prenom }} {{client.nom}} </td>
-      <td> {{ client.email }} </td>
-      <td> {{ client.solde | currency:"EUR" }} </td>
+      <td> {{ projet.nom }} </td>
+      <td> {{ projet.dateDemandeFinancement }} </td>
+      <td> {{ projet.etatProjet }} </td>
       <td><a routerLink="/" class="btn btn-secondary btn-sm">
             <i class="fa fa-arrow-circle-o-right"></i>
-            Details
+            Détails
           </a>
       </td>
     </tr>
@@ -34,7 +38,7 @@
 </table>
 
 
-<ng-template #noClients>
+<ng-template #noProjets>
   <hr>
-  <h5>There are no clients in the system</h5>
+  <h5>Vous n'avez aucun projet pour le moment</h5>
 </ng-template>

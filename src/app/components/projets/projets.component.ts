@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Projet } from '../../models/Projet';
 
 @Component({
   selector: 'app-projets',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjetsComponent implements OnInit {
 
+  projets : Projet[];
+  public loading: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    //this.loading = true;
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SolutionUp } from '../../models/SolutionUp';
 
 @Component({
   selector: 'app-solutions',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./solutions.component.css']
 })
 export class SolutionsComponent implements OnInit {
+  solutions : SolutionUp[];
+  public loading: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    //this.loading = true;
   }
 
 }
