@@ -1,3 +1,31 @@
-<p>
-  navbar works!
-</p>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">Wefinup</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact : true}">
+          <a routerLink="/" class="nav-link">Upboard</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        
+        <li *ngIf="estConnecte" class="nav-item">
+          <a routerLink="/" class="nav-link">{{ clientConnecte }}</a>
+        </li>
+        <li *ngIf="estConnecte" class="nav-item">
+            <a routerLink="/settings" class="nav-link">Paramètres</a>
+          </li>
+          <li *ngIf="estConnecte" class="nav-item">
+              <a (click)="onLogoutClick()" href="#" class="nav-link">Déconnexion</a>
+            </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
