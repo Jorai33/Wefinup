@@ -1,5 +1,5 @@
 export interface SolutionUp {
-  id? : string,
+  _id? : string,
   nom? : string,
   dateDebutSolution? : Date,
   etatSolution? : string

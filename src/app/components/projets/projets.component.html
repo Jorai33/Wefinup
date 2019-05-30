@@ -1,10 +1,14 @@
-<!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+<div *ngIf="loading" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6">
     <h2><i class="fa fa-lightbulb-o"></i>Projets en cours</h2>
   </div>
   <div class="col-md-6">
-    <a routerLink="/projet/add" class="btn btn-success btn-block">
+    <a routerLink="/" class="btn btn-success btn-block">
       <i class="fa fa-plus"></i>
       New
       </a>
@@ -17,12 +21,12 @@
     <tr>
       <th scope="col">Nom du Projet</th>
       <th scope="col">Date de la Demande</th>
-      <th scope="col">Etat d'avancement</th>
+      <th scope="col">Etat d'Avancement</th>
       <th scope="col"></th> 
     </tr>
   </thead>
 
-  <tbody >
+  <tbody *ngFor="let projet of projets" >
     <tr scope="row">
       <td> {{ projet.nom }} </td>
       <td> {{ projet.dateDemandeFinancement }} </td>

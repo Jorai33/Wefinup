@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from "angular2-flash-messages";
+import { ProjetService } from './services/projet.service';
+import { StateService } from './services/state.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,9 @@ import { DocumentsComponent } from './components/documents/documents.component';
 import { ProjetsComponent } from './components/projets/projets.component';
 import { SolutionsComponent } from './components/solutions/solutions.component';
 import { ComptesComponent } from './components/comptes/comptes.component';
+import {  HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -30,9 +35,11 @@ import { ComptesComponent } from './components/comptes/comptes.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    HttpClientModule
+    
   ],
-  providers: [],
+  providers: [ProjetService, StateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

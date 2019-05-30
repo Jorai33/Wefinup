@@ -1,7 +1,7 @@
 export interface Projet {
-  id? : string,
+  _id? : string,
   nom? : string,
-  dateDemandeFinancement? : Date,
+  dateDemandeFinancement? : string,
   etatProjet? : string
 
 }
