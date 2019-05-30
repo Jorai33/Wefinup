@@ -8,7 +8,7 @@ import { Projet } from '../models/Projet';
 })
 export class ProjetService {
 
-  private projets : Projet[] = [
+   projets : Projet[] = [
     {
       _id : "1516515gsgd",
       nom : "Refonte ancienne bâtisse",
@@ -25,7 +25,7 @@ export class ProjetService {
   ];
   
 
-  public projets$ = new Subject<Projet[]>();
+   projets$ = new Subject<Projet[]>();
   
 
   constructor(private http: HttpClient) { 
@@ -47,5 +47,9 @@ export class ProjetService {
 
   emitProjet() {
     this.projets$.next(this.projets);
+  }
+
+  addProjet( projet : Projet){
+    this.projets.unshift(projet);
   }
 }

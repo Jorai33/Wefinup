@@ -1,0 +1,71 @@
+<button (click)="showProjetForm = !showProjetForm" class="btn btn-success mb-3"><i [ngClass]="!showProjetForm ? 'fa fa-plus' : 'fa fa-minus'" ></i> Nouveau projet</button>
+
+<div class="card card-body mb-3" *ngIf="showProjetForm">
+
+  <h2>{{ projet.nom }}</h2>
+
+  <form #projetForm="ngForm" (ngSubmit)="onSubmit(projetForm)">
+
+    <div class="form-group">
+      <label>Nom du projet</label>
+      
+      <input 
+      type="text" 
+      [(ngModel)]="projet.nom" 
+      [ngClass]="{'is-invalid': projetNom.errors && projetNom.touched}"  
+      class="form-control "
+      name="nom"
+      #projetNom = "ngModel"
+      required
+      minlength="2"
+      >
+    
+    <div [hidden]="!projetNom.errors?.required" class="invalid-feedback"> Nom du projet requis</div>
+    <div [hidden]="!projetNom.errors?.minlength" class="invalid-feedback"> Il doit contenir au moins 2 caractères </div>
+  
+  </div>
+
+
+
+    <!-- <div class="form-group">
+      <label>Date début financement</label>
+      <input 
+      type="text" 
+      [(ngModel)]="projet.dateDebutFinancement" 
+      [ngClass]="{'is-invalid': projetDate.errors && projetDate.touched}"  
+      class="form-control "
+      name="date"
+      #projetDate = "ngModel"
+      required
+      minlength="2"
+      >
+    
+    <div [hidden]="!projetDate.errors?.required" class="invalid-feedback"> La date est requise</div>
+    <div [hidden]="!projetDate.errors?.minlength" class="invalid-feedback"> Au moins 2 caractères </div>
+    </div> -->
+
+    <div class="form-group">
+      <label>Etat du projet</label>
+      <input 
+      type="text" 
+      [(ngModel)]="projet.etatProjet" 
+      [ngClass]="{'is-invalid': projetEtat.errors && projetEtat.touched}"  
+      class="form-control "
+      name="etatProjet"
+      #projetEtat = "ngModel"
+      required
+      minlength="3"
+      >
+    
+    <div [hidden]="!projetEtat.errors?.required" class="invalid-feedback"> Etat requis</div>
+    <div [hidden]="!projetEtat.errors?.minlength" class="invalid-feedback"> Un état doit contenir au moins 3 caractères </div>
+    </div>
+
+
+    <button [disabled]="!projetForm.form.valid" class="btn btn-light btn-block mb-3">Valider mon projet
+    </button>
+
+  </form>
+
+</div>
+

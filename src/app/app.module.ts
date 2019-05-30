@@ -16,6 +16,7 @@ import { ProjetsComponent } from './components/projets/projets.component';
 import { SolutionsComponent } from './components/solutions/solutions.component';
 import { ComptesComponent } from './components/comptes/comptes.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { NouveauProjetComponent } from './components/nouveau-projet/nouveau-projet.component';
 
 
 
@@ -29,7 +30,8 @@ import {  HttpClientModule } from '@angular/common/http';
     DocumentsComponent,
     ProjetsComponent,
     SolutionsComponent,
-    ComptesComponent
+    ComptesComponent,
+    NouveauProjetComponent
   ],
   imports: [
     BrowserModule,

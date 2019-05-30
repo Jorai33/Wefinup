@@ -6,11 +6,13 @@ import { ProjetsComponent } from './components/projets/projets.component';
 import { SolutionsComponent } from './components/solutions/solutions.component';
 import { DocumentsComponent } from './components/documents/documents.component';
 import { ComptesComponent } from './components/comptes/comptes.component';
+import { NouveauProjetComponent } from './components/nouveau-projet/nouveau-projet.component';
 
 
 const routes: Routes = [
   {path : "", component : UpboardComponent},
   {path : "projets", component : ProjetsComponent},
+  {path : "projets/add,", component : NouveauProjetComponent},
   {path : "solutions", component : SolutionsComponent},
   {path : "documents", component : DocumentsComponent},
   {path : "comptes", component : ComptesComponent},

@@ -4,6 +4,7 @@ import { ProjetService } from '../../services/projet.service';
 import { StateService } from '../../services/state.service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-projets',
   templateUrl: './projets.component.html',
