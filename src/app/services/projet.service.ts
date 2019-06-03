@@ -8,24 +8,14 @@ import { Projet } from '../models/Projet';
 })
 export class ProjetService {
 
-   projets : Projet[] = [
-    {
-      _id : "1516515gsgd",
-      nom : "Refonte ancienne bâtisse",
-      dateDemandeFinancement : "22/05/2019",
-      etatProjet : "Demande acceptée"
-    },
-    
-    {
-      _id : "156121fef",
-      nom : "Achat piscine communale",
-      dateDemandeFinancement : "18/04/2019",
-      etatProjet : "Demande en attente de validation"
-    }
+  
+  projets : Projet[] = [
+
   ];
   
 
    projets$ = new Subject<Projet[]>();
+  
   
 
   constructor(private http: HttpClient) { 
@@ -50,6 +40,44 @@ export class ProjetService {
   }
 
   addProjet( projet : Projet){
-    this.projets.unshift(projet);
+    //this.projets.unshift(projet);
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/api/projets', projet).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   }
+
+  getProjetById(id: string) {
+    return new Promise((resolve, reject) => {
+      this.http.get('http://localhost:3000/api/projets/' + id).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  deleteProjet(id: string) {
+    return new Promise((resolve, reject) => {
+      this.http.delete('http://localhost:3000/api/projets/' + id).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+
 }

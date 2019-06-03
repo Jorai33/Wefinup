@@ -17,6 +17,8 @@ import { SolutionsComponent } from './components/solutions/solutions.component';
 import { ComptesComponent } from './components/comptes/comptes.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { NouveauProjetComponent } from './components/nouveau-projet/nouveau-projet.component';
+import { SingleProjetComponent } from './components/single-projet/single-projet.component';
+import { ModifProjetComponent } from './components/modif-projet/modif-projet.component';
 
 
 
@@ -31,13 +33,15 @@ import { NouveauProjetComponent } from './components/nouveau-projet/nouveau-proj
     ProjetsComponent,
     SolutionsComponent,
     ComptesComponent,
-    NouveauProjetComponent
+    NouveauProjetComponent,
+    SingleProjetComponent,
+    ModifProjetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FlashMessagesModule,
+    FlashMessagesModule.forRoot(),
     HttpClientModule
     
   ],

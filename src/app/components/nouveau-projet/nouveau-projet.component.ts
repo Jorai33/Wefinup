@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Projet } from '../../models/Projet';
 import { ProjetService } from '../../services/projet.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nouveau-projet',
@@ -14,12 +14,13 @@ export class NouveauProjetComponent implements OnInit {
 
   projet: Projet = {
     nom: "",
-    etatProjet: ""
+    etatProjet: "",
+    dateDemandeFinancement : ""
   }
 
   projets: Projet[];
 
-  constructor( private projetServ : ProjetService) { }
+  constructor( private projetServ : ProjetService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -38,9 +39,13 @@ export class NouveauProjetComponent implements OnInit {
       this.projetServ.addProjet(value);
       
       this.form.reset();
+      this.showProjetForm = false ;
+      //this.router.navigate(['/projets']);
 
     }
     
   }
+
+  
 
 }

@@ -3,6 +3,7 @@ import { Projet } from '../../models/Projet';
 import { ProjetService } from '../../services/projet.service';
 import { StateService } from '../../services/state.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,30 +18,34 @@ export class ProjetsComponent implements OnInit {
   public part: number;
   
   private projetSub : Subscription;
-  private partSub: Subscription;
+  //private partSub: Subscription;
 
-  constructor( private projetService : ProjetService, private stateService : StateService) { }
+  constructor( private projetService : ProjetService, private stateService : StateService, private router : Router) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.stateService.mode$.next('list');
+    //this.loading = true;
+    //this.stateService.mode$.next('list');
     this.projetSub = this.projetService.projets$.subscribe(
       (projets) => {
         this.projets = projets;
         this.loading = false;
       }
     );
-    this.partSub = this.stateService.part$.subscribe(
-      (part) => {
-        this.part = part;
-      }
-    );
+    // this.partSub = this.stateService.part$.subscribe(
+    //   (part) => {
+    //     this.part = part;
+    //   }
+    // );
     this.projetService.getProjets();
+  }
+
+  onDetailsCLicked( id : string ){
+    this.router.navigate(['/projets/'+ id]);
   }
 
   ngOnDestroy() {
     this.projetSub.unsubscribe();
-    this.partSub.unsubscribe();
+    //this.partSub.unsubscribe();
   }
 
 

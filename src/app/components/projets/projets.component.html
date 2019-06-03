@@ -3,6 +3,10 @@
     <span class="sr-only">Loading...</span>
   </div>
 </div> -->
+<a routerLink ="/projets/add" class="btn btn-secondary btn-sm">
+  <i class="fa fa-plus"></i>
+  Ajouter un projet
+</a>
 <div class="row">
   <div class="col-md-6">
     <h2><i class="fa fa-lightbulb-o"></i>Projets en cours</h2>
@@ -15,7 +19,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nom du Projet</th>
-      <th scope="col">Date de la Demande</th>
+      <!-- <th scope="col">Date de la Demande</th> -->
       <th scope="col">Etat d'Avancement</th>
       <th scope="col"></th> 
     </tr>
@@ -24,9 +28,9 @@
   <tbody *ngFor="let projet of projets" >
     <tr scope="row">
       <td> {{ projet.nom }} </td>
-      <td> {{ projet.dateDemandeFinancement }} </td>
+      <!-- <td> {{ projet.dateDemandeFinancement }} </td> -->
       <td> {{ projet.etatProjet }} </td>
-      <td><a routerLink="/" class="btn btn-secondary btn-sm">
+      <td><a routerLink ="/projets/{{projet._id}}" class="btn btn-secondary btn-sm">
             <i class="fa fa-arrow-circle-o-right"></i>
             Détails
           </a>
@@ -44,4 +48,4 @@
 </ng-template>
 
 
-  <app-nouveau-projet></app-nouveau-projet>
+
